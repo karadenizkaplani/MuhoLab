@@ -1,0 +1,79 @@
+
+(a) Develop a Huffman code for the given pmf px(x), calculate its average codeword length and its absolute and relative redundancy.
+
+Solution:
+The Huffman algorithm can be described as follows: First, we create a symbol group for each alphabet letter. Then, in each iteration, 
+the symbol groups are sorted according to their associated probabilities. Two symbol groups with the smallest probabilities are selected, 
+and each of the two symbol groups is characterized by a single bit. Then, the two selected symbol groups are summarized to a new symbol group. 
+This process is repeated until a single symbol group is obtained. Finally, the constructed binary code tree is converted into a prefix code using the assigned bits. 
+The construction of the binary code tree for the given pmf is illus- trated in the following table.
+
+Sembol Grupları Göster
+
+	sorted probabilities associated symbol groups assigned bits
+step1	0.3333333333333333	0.3333333333333333	0.1111111111111111	0.1111111111111111	0.037037037037037035	0.037037037037037035	0.037037037037037035
+a	g	b	f	c	d	e
+0	1
+step2	0.3333333333333333	0.3333333333333333	0.1111111111111111	0.1111111111111111	0.07407407407407407	0.037037037037037035	
+a	g	b	f	de	c	
+0	1	
+step3	0.3333333333333333	0.3333333333333333	0.1111111111111111	0.1111111111111111	0.1111111111111111		
+a	g	b	f	dec		
+0	1		
+step4	0.3333333333333333	0.3333333333333333	0.2222222222222222	0.1111111111111111			
+a	g	fdec	b			
+0	1			
+step5	0.3333333333333333	0.3333333333333333	0.3333333333333333				
+a	g	fdecb				
+0	1				
+step6	0.6666666666666666	0.3333333333333333					
+gfdecb	a					
+0	1
+
+CodeWord Sonuçları Göster
+
+X	codeword
+a	1
+b	011
+c	01011
+d	010100
+e	010101
+f	0100
+g	00
+
+Note that there are multiple codes for a given pmf that can be constructed with the Huffman algorithm. 
+We could sort the probabilities with the same values in a different order, and we could switch the assignment of 0 and 1 bits in some or all of the iteration steps. 
+The average codeword length per symbol is given by
+
+Ortalama CodeWord Uzunluğunu Göster
+ = 0.3333333333333333 +  0.3333333333333333 + 0.18518518518518517 + 0.2222222222222222 + 0.2222222222222222 + 0.4444444444444444 + 0.6666666666666666
+ = 2.4074074074074074
+
+The entropy of the random variables Xn = X is given by H(X)
+Entrophy of Random Variable Xn=X Göster
+
+  = 0.5283208335737187 + 0.3522138890491458 + 0.1761069445245729 + 0.1761069445245729 + 0.1761069445245729 + 0.3522138890491458 + 0.5283208335737187
+  = 2.2893902788194476
+  
+The absolute redundancy of the Huffman code is
+p = l' - H(X)
+   = 2.4074074074074074 - 2.2893902788194476
+   = 0.11801712858795987
+   
+The absolute redundancy of the Huffman code is approximately 0.11801712858795987 bit per symbol.
+= ( 2.4074074074074074 / 2.2893902788194476 ) - 1
+= 0.051549589285762476
+
+
+The relative redundancy of the Huffman code is p / H(X) = ( l' - H(X) ) / H(X) = ( l' / H(X) ) - 1
+The relative redundancy of the Huffman code is approximately % 5.154958928576248
+
+(b) For all codes A, B, C, D, E, and F, do the following:
+
+
+  
+
+
+
+
+
