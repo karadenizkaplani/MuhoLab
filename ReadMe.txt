@@ -1,7 +1,23 @@
+The programming language is HTML,CSS,Javascript.
+This application is developed by Muhammed Keskin on May 2021
+
 Given is a discrete id process X with alphabet A={a,b,c,d,e,f,g}.
 The pmf px(x) and 6 example codes* listed in the following table.
+(a) Develop a Huffman code for the given pmf px(x), calculate its average codeword length and its absolute and relative redundancy.
 
-İşlem sırası
+x	px(x)	A	B	C	D	E	F
+a	1/3	1	0	00	01	000	1
+b	1/9	0001	10	010	101	001	100
+c	1/27	000000	110	0110	111	010	100000
+d	1/27	00001	1110	0111	010	100	10000
+e	1/27	000001	11110	100	110	111	000000
+f	1/9	001	111110	101	100	011	1000
+g	1/3	01	111111	11	00	001	10
+
+(b) For all codes A, B, C, D, E, and F, do the following:
+.Calculate the average codeword length per symbol.
+
+The Following Button Press Order
 Sembol Grupları Göster butonuna bas, ya da gizle.
 Codeword Sonuçları Göster butonuna bas, ya da gizle
 Ortalama CodeWord Uzunluğunu Göster butonuna bas, ya da gizle
