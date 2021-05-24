@@ -1,2 +1,0 @@
-# MuhoLab
-MuhoLab
