@@ -23,3 +23,9 @@ Codeword Sonuçları Göster butonuna bas, ya da gizle
 Ortalama CodeWord Uzunluğunu Göster butonuna bas, ya da gizle
 Entrophy of Random Variable Xn=X Göster ya da gizle
 CodeWord Uzunluğu Göster ya da gizle 
+
+
+The average codeword length per symbol is given by l' = Σ px(x) * l(x)
+where l`(x) denote the length of the codeword for the alphabet letter x. As an example, the average codeword length for code X is entered as an input below:
+.Calculate the average codeword length per symbol;
+{A,B,C,D,E,F}
