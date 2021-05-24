@@ -1,0 +1,85 @@
+table.a {
+  width:100%;
+}
+table.b {
+  width:50%;
+}
+table.a, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 8em;
+}
+table.b, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+.cellbottom1{
+  border-bottom: 2px solid black;
+}
+
+#alphabet tr:nth-child(even) {
+	background-color: #eee;
+}
+#alphabet tr:nth-child(odd) {
+ background-color: #fff;
+}
+#alphabet th {
+  background-color: black;
+  color: white;
+}
+#associatedGroups tr:nth-child(even) {
+  background-color: #eee;
+}
+#associatedGroups  tr:nth-child(odd) {
+ background-color: #fff;
+}
+#associatedGroups  th {
+  background-color: black;
+  color: white;
+}
+#codeWord tr:nth-child(even) {
+  background-color: #eee;
+}
+#codeWord  tr:nth-child(odd) {
+ background-color: #fff;
+}
+#codeWord  th {
+  background-color: black;
+  color: white;
+}
+p {
+    height: 50px;
+    line-height: 50px;
+}
+
+span {
+    position: relative;
+    font-size: 2.5em;
+    display: inline-block;
+    line-height: .7em;
+    vertical-align: middle;
+}
+span:before {
+    font-size: 12px;
+    display: block;
+    position absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    text-align: center;
+}
+
+span:after {
+    font-size: 12px;
+    display: block;
+    position absolute;
+    left: 0;
+    bottom: 0;
+    content: "x€A";
+    width: 27px;
+    text-align: center;
+}

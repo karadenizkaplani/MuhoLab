@@ -1,0 +1,443 @@
+<html>
+ <script src="process_X_with_alphabet.js"></script>
+ <link rel="stylesheet" href="Huffman.css">
+ <body>
+   <br>Given is a discrete id process X with alphabet A={a,b,c,d,e,f,g}.
+   <br> The pmf px(x) and 6 example codes* listed in the following table.
+   <br/>
+   <table id="alphabet" style="padding: 25px; margin: 0 auto; font-family:'Open Sans', 'Helvetica', 'Arial';" cellpadding=0 cellspacing=0>
+  <tr>
+    <th><b>x</b></th>
+    <th><b>px(x)</b></th>
+    <th><b>A</b></th>
+    <th><b>B</b></th>
+    <th><b>C</b></th>
+    <th><b>D</b></th>
+    <th><b>E</b></th>
+    <th><b>F</b></th>
+  </tr>
+  <tr>
+    <th>a</th>
+    <td>1/3</td>
+    <td>1</td>
+    <td>0</td>
+    <td>00</td>
+    <td>01</td>
+    <td>000</td>    
+    <td>1</td>
+  </tr>
+    <tr>
+    <th>b</th>
+    <td>1/9</td>
+    <td>0001</td>
+    <td>10</td>
+    <td>010</td>
+    <td>101</td>
+    <td>001</td>    
+    <td>100</td>
+  </tr>
+    <tr>
+    <th>c</th>
+    <td>1/27</td>
+    <td>000000</td>
+    <td>110</td>
+    <td>0110</td>
+    <td>111</td>
+    <td>010</td>    
+    <td>100000</td>
+  </tr>
+    <tr>
+    <th>d</th>
+    <td>1/27</td>
+    <td>00001</td>
+    <td>1110</td>
+    <td>0111</td>
+    <td>010</td>
+    <td>100</td>    
+    <td>10000</td>
+  </tr>
+    <tr>
+    <th>e</th>
+    <td>1/27</td>
+    <td>000001</td>
+    <td>11110</td>
+    <td>100</td>
+    <td>110</td>
+    <td>111</td>    
+    <td>000000</td>
+  </tr>
+    <tr>
+    <th>f</th>
+    <td>1/9</td>
+    <td>001</td>
+    <td>111110</td>
+    <td>101</td>
+    <td>100</td>
+    <td>011</td>    
+    <td>1000</td>
+  </tr>
+  <tr>
+    <th>g</th>
+    <td>1/3</td>
+    <td>01</td>
+    <td>111111</td>
+    <td>11</td>
+    <td>00</td>
+    <td>001</td>    
+    <td>10</td>
+  </tr>
+</table> 
+<br>
+<b>(a)</b> Develop a Huffman code for the given pmf p<sub>x</sub><sup>(x)</sup>, calculate its average
+codeword length and its absolute and relative redundancy. 
+<br/>
+<br>
+<u>Solution:</u><br/>
+The Huffman algorithm can be described as follows: First, we create
+a symbol group for each alphabet letter. Then, in each iteration, the
+symbol groups are sorted according to their associated probabilities.
+Two symbol groups with the smallest probabilities are selected, and
+each of the two symbol groups is characterized by a single bit. Then,
+the two selected symbol groups are summarized to a new symbol
+group. This process is repeated until a single symbol group is ob-
+tained. Finally, the constructed binary code tree is converted into a
+prefix code using the assigned bits.
+The construction of the binary code tree for the given pmf is illus-
+trated in the following table.</br>  
+
+<form id="form1" align="center">
+<input id="show1" type="button" value="Sembol Gruplarý Göster" onClick="associateSymbolGroups()" style='cursor:hand'>
+<input id="hidden1" type="button" value="Sembol Gruplarý Gizle" onClick="hiddenAssociateSymbolGroups()" style='cursor:hand'>
+</form>
+
+<table id="associatedGroups" style="visibility:hidden; padding: 25px; margin: 0 auto; font-family:'Open Sans', 'Helvetica', 'Arial';" class="a" >
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th></th>
+    <th colspan="7"><b>sorted probabilities associated symbol groups assigned bits</b></th>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th rowspan="3"><b>step1</b></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+  </tr>  
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th rowspan="3"><b>step2</b></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>    
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+  </tr>  
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th rowspan="3"><b>step3</b></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>    
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+  </tr>  
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th rowspan="3"><b>step4</b></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>  
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th rowspan="3"><b>step5</b></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>    
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+  </tr>  
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th rowspan="3"><b>step6</b></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>    
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+    <td class="cellbottom1"></td>
+  </tr>  
+</table> 
+<br>
+Given the developed binary code tree, the codeword for each par-
+ticular symbol x £ A is constructed by concatenating the bits that
+are assigned to the symbol groups containing the particular symbol,
+starting with the last iteration (i.e., the largest symbol groups) of
+the above described algorithm. The resulting code for the above
+illustrated code construction is shown in the table below.</br>
+<table id="codeWord" style="visibility:hidden; padding: 25px; margin: 0 auto; font-family:'Open Sans', 'Helvetica', 'Arial';" class="b">
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th><b>X</b></th>
+    <th><b>codeword</b></th>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th>a</th>
+    <td></td>
+  </tr>
+  <tr align="center" style="margin: 0; padding: 0;">
+    <th>b</th>
+    <td></td>
+  </tr align="center" style="margin: 0; padding: 0;">
+    <tr>
+    <th>c</th>
+    <td></td>
+  </tr align="center" style="margin: 0; padding: 0;">
+    <tr>
+    <th>d</th>
+    <td></td>
+  </tr align="center" style="margin: 0; padding: 0;">
+    <tr>
+    <th>e</th>
+    <td></td>
+  </tr align="center" style="margin: 0; padding: 0;">
+    <tr>
+    <th>f</th>
+    <td></td>
+  </tr align="center" style="margin: 0; padding: 0;">
+    <tr>
+    <th>g</th>
+    <td></td>
+  </tr>
+</table>
+<form id="form2" align="center">
+<input id="show2" type="button" value="Codeword Sonuçlarý Göster" onClick="showCodewordResults()" style='cursor:hand'>
+<input id="hidden2" type="button" value="Codeword Sonuçlarý Gizle" onClick="hideCodewordResults()" style='cursor:hand'>
+</form>
+<br>
+Note that there are multiple codes for a given pmf that can be con-
+structed with the Huffman algorithm. We could sort the probabilities
+with the same values in a dierent order, and we could switch the
+assignment of 0 and 1 bits in some or all of the iteration steps.
+The average codeword length per symbol is given by</br>
+<p>
+     l' = <span>&Sigma;</span>
+     <sup>p<sub>x</sub>(x) * l(x)</sup>
+     <input id="show3" type="button" value="Ortalama CodeWord Uzunluðunu Göster" onClick="showCodeWordLength()" style='cursor:hand'>
+     <input id="hidden3" type="button" value="Ortalama CodeWord Uzunluðunu Gizle" onClick="hideCodeWordLength()" style='cursor:hand'>
+     <br>
+</p>  
+<p>
+  <form id="form3" align="center" style="visibility:hidden">
+     &nbsp &nbsp = 
+     <input type="text" name="array[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array[]" width="%50" disabled="true"/>
+     <br>
+     &nbsp &nbsp = 
+     <input type="text" id="sum" width="%50" disabled="true"/>
+  </form>
+</p>  
+<p>
+  <br>The entropy of the random variables X<sub>n</sub> = X is given by
+  H(X) = - <span>&Sigma;</span> <sup>p<sub>x</sub>(x) * log<sub>2</sub>p<sub>x</sub>(x)</sup>
+  <input id="show4" type="button" value="Entropy of Random Variable Xn=X Göster" onClick="showEntropy()" style='cursor:hand'>
+  <input id="hidden4" type="button" value="Entropy of Random Variable Xn=X  Gizle" onClick="hideEntropy()" style='cursor:hand'>
+  <br>
+</p>
+<p>
+ <form id="form4" align="center" style="visibility:hidden">
+     &nbsp &nbsp = 
+     <input type="text" name="array2[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array2[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array2[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array2[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array2[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array2[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array2[]" width="%50" disabled="true"/>
+     <br>
+     &nbsp &nbsp = 
+     <input type="text" id="entrophy" width="%50" disabled="true"/>
+  </form>
+</p> 
+ <br>The absolute redundancy of the Huffman code is
+ <p>
+    p =  l' - H(X)
+    <br>
+ </p> 
+ <p>
+      <br>
+    &nbsp &nbsp = 
+     <input type="text" id="sum2" width="%50" disabled="true"/> - <input type="text" id="entrophy2" width="%50" disabled="true"/>
+     &nbsp &nbsp = 
+     <input type="text" id="result" width="%50" disabled="true"/>
+     <br>
+ </p>
+ <p>
+   <br>The absolute redundancy of the Huffman code is approximately  <input type="text" id="result2" width="%50" disabled="true"/> bit per symbol.
+   <br>
+   <br>The relative redundancy of the Huffman code is    p / H(X) = ( l' - H(X) ) / H(X) = ( l' / H(X) ) - 1</br>
+ </p>
+ <p>
+    &nbsp &nbsp = 
+     ( <input type="text" id="sum3" width="%50" disabled="true"/> / <input type="text" id="entrophy3" width="%50" disabled="true"/> ) - 1
+     <br>
+     &nbsp &nbsp = 
+     <input type="text" id="result3" width="%50" disabled="true"/> 
+ </p>
+ <p>
+   <br>The relative redundancy of the Huffman code is approximately % <input type="text" id="result3_percent" maxlength="6" disabled="true"/><br>
+ </p>
+ <br>
+ <p>
+   <b>(b)</b> For all codes A, B, C, D, E, and F, do the following:
+            <h1>.</h1> Calculate the average codeword length per symbol;
+ </p>
+ <br>
+ <u>Solution:</u><br/>
+ The average codeword length per symbol is given by 
+     l' = <span>&Sigma;</span>
+     <sup>p<sub>x</sub>(x) * l(x)</sup>
+     <br>
+     where l`(x) denote the length of the codeword for the alphabet letter x. As an example, the average codeword length for code C is
+     <br>
+     <input id="letter" width="%50" placeholder="{A,B,C,D,E,F}">
+     <input id="show5" type="button" value="CodeWord Uzunluðu Göster" onClick="showLengthCodeWord(letter)" style='cursor:hand'>
+     <input id="hidden5" type="button" value="CodeWord Uzunluðu Gizle" onClick="hideLengthEntropy()" style='cursor:hand'>
+</p>  
+<p>
+  <form id="form5" style="visibility:hidden">
+     &nbsp &nbsp = 
+     <input type="text" name="array3[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array3[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array3[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array3[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array3[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array3[]" width="%50" disabled="true"/><text>+</text>
+     <input type="text" name="array3[]" width="%50" disabled="true"/>
+     <br>
+     &nbsp &nbsp = 
+     <input type="text" id="sum4" width="%50" disabled="true"/>
+  </form>
+</p>  
+ </body>
+</html>
